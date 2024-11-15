@@ -1,0 +1,69 @@
+LeggedRobotCfg:
+  init_state:
+    default_joint_angle:
+      leg_l1_joint: 0.0
+      leg_l2_joint: -0.0
+      leg_l3_joint: -0.3
+      leg_l4_joint: 0.6
+      leg_l5_joint: -0.3
+      leg_l6_joint: 0
+      leg_r1_joint: -0.0
+      leg_r2_joint: -0.0
+      leg_r3_joint: -0.3
+      leg_r4_joint: 0.6
+      leg_r5_joint: -0.3
+      leg_r6_joint: 0
+  control:
+    stiffness:
+      leg_l1_joint: 50.0
+      leg_r1_joint: 50.0
+      leg_l2_joint: 70.0
+      leg_r2_joint: 70.0
+      leg_l3_joint: 90.0
+      leg_r3_joint: 90.0
+      leg_l4_joint: 120.0
+      leg_r4_joint: 120.0
+      leg_l5_joint: 50.0
+      leg_r5_joint: 50.0
+      leg_l6_joint: 30.0
+      leg_r6_joint: 30.0
+    damping:
+      leg_l1_joint: 5.0
+      leg_r1_joint: 5.0
+      leg_l2_joint: 7.0
+      leg_r2_joint: 7.0
+      leg_l3_joint: 9.0
+      leg_r3_joint: 9.0
+      leg_l4_joint: 12.0
+      leg_r4_joint: 12.0
+      leg_l5_joint: 5.0
+      leg_r5_joint: 5.0
+      leg_l6_joint: 3.0
+      leg_r6_joint: 3.0
+    action_scale: 0.5
+    decimation: 10
+    cycle_time: 0.7
+  normalization:
+    clip_scales:
+      clip_observations: 100.0
+      clip_actions: 100.0
+    obs_scales:
+      ang_vel: 1.0
+      dof_pos: 1.0
+      dof_vel: 0.05
+      height_measurements: 5.0
+      lin_vel: 2.0
+      quat: 1.0
+  size:
+    actions_size: 12
+    observations_size: 47
+    num_hist: 66
+  mode:
+    sw_mode: true
+    cmd_threshold: 0.05
+    ang_vel_threshold: 100000
+    angle_threshold: 0.1
+  filter:
+    filt_action: true
+    sample_rate: 100
+    cutoff_freq: 3.0

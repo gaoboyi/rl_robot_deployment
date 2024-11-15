@@ -1,0 +1,5 @@
+Kp_config:
+  kp: 40
+  kp_large: 500
+Kd_config:
+  kd: 1

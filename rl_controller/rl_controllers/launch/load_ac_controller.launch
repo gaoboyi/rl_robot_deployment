@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<launch>
+    <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type: [lt, go1, ti5]"/>
+
+    <include file="$(find rl_controllers)/launch/joy_teleop.launch"/>
+    
+    <rosparam file="$(find rl_controllers)/config/$(env ROBOT_TYPE)_kd.yaml" command="load"/>
+    <rosparam file="$(find rl_controllers)/config/$(env ROBOT_TYPE)_motor_offset.yaml" command="load"/>
+    <param name="policyFile" value="$(find rl_controllers)/policy/$(env ROBOT_TYPE)/$(env ROBOT_TYPE)_dh_policy.mnn"/>
+    <rosparam file="$(find rl_controllers)/config/controllers.yaml" command="load"/>
+    <rosparam file="$(find rl_controllers)/config/$(env ROBOT_TYPE)_amp.yaml" command="load"/>
+    <param name="robot_type" value="$(arg robot_type)"/>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="controllers/ac_controller">
+    </node>
+
+    <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen">
+    </node>
+
+</launch>
