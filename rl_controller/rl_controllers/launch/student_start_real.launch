@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<launch>
+    <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type: [lt, go1]"/>
+
+    <group if="$(eval robot_type=='go1')">
+            <include file="$(find legged_unitree_hw)/launch/legged_unitree_hw.launch"/>
+    </group>
+
+    <group if="$(eval robot_type=='lt')">
+            <include file="$(find legged_gsmp_hw)/launch/legged_gsmp_hw.launch"/>
+    </group>
+
+    <!-- <include file="$(find rl_controllers)/launch/load_student_policy_controller.launch"/> -->
+    <node pkg="rl_controllers" type="timedelay_launch.sh" name="timedelay_launch" args="10 rl_controllers load_student_policy_controller.launch" output="screen">
+    </node>
+
+</launch>

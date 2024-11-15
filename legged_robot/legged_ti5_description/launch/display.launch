@@ -1,0 +1,13 @@
+<launch>
+  <arg name="model" />
+  <!-- <param name="robot_description" textfile="$(find legged_pdd_description)/urdf/pdd.urdf" /> -->
+
+  <param name="robot_description" textfile="$(find legged_ti5_description)/urdf/ti5.urdf" />
+
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find legged_pdd_description)/rviz/urdf.rviz" /> -->
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find legged_ti5_description)/rviz/urdf.rviz" />
+
+</launch>

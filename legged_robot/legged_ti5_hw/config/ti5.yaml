@@ -1,0 +1,7 @@
+legged_ti5_hw:
+  loop_frequency: 200
+  cycle_time_error_threshold: 0.001
+  thread_priority: 95
+  power_limit: 6
+  contact_threshold: 200
+

@@ -1,0 +1,12 @@
+controllers:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+  legged_controller:
+    type: legged/RLContro
+  ac_controller:
+    type: legged/AcController
+  student_policy_controller:
+    type: legged/StudentPolicyController
+  student_stm_controller:
+    type: legged/StudentStmController
